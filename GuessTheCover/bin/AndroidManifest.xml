@@ -22,6 +22,12 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+    	<activity android:name="it.unisa.guessthecover.Login" >
+		</activity>  
+		<activity android:name="it.unisa.guessthecover.Registra" >
+		</activity>  
+		<activity android:name="it.unisa.guessthecover.Gioco" >
+		</activity> 
     </application>
 
 </manifest>
