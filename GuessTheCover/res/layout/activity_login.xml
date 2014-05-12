@@ -1,70 +1,72 @@
-<?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:paddingBottom="@dimen/activity_vertical_margin"
-    android:paddingLeft="@dimen/activity_horizontal_margin"
-    android:paddingRight="@dimen/activity_horizontal_margin"
-    android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="it.unisa.guessthecover.MainActivity$PlaceholderFragment" 
-	android:background="@drawable/sfondomenu">
+    tools:context="it.unisa.guessthecover.MainActivity"
+    tools:ignore="MergeRootFrame" 
+    android:background="@drawable/intro1">
 
-    <ImageView
-        android:id="@+id/imageView1"
-        android:layout_width="100dp"
-        android:layout_height="100dp"
+    
+    
+    <EditText
+        android:id="@+id/email_form"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+       
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="17dp"
-        android:src="@drawable/user" />
-
-    <TextView
-        android:id="@+id/textView1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/imageView1"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="14dp"
-        android:text="Utente"
-        android:textSize="24dp"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView1"
-        android:layout_centerHorizontal="true"
-        android:text="Punti:"
-        android:textSize="18dp"
-        android:textColor="#FFFFFF" />
-
-    <TextView
-        android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/textView2"
-        android:layout_centerHorizontal="true"
-        android:text="Posizione:"
-        android:textSize="18dp"
-        android:textColor="#FFFFFF" />
+        android:layout_marginTop="200dp"
+        
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        
+        android:layout_marginBottom="15dp"
+        
+        android:background="#FFFFFF"
+        android:ems="20"
+        android:gravity="center"
+        android:inputType="textEmailAddress"
+        android:hint="e-mail">
+		
+        <requestFocus />
+    </EditText>
+    
+    <EditText
+        android:id="@+id/password_form"
+        android:layout_width="15dp"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/email_form"
+        android:layout_alignRight="@+id/email_form"
+        android:layout_below="@+id/email_form"
+        android:layout_marginBottom="15dp"
+        android:layout_centerVertical="true"
+        android:background="#FFFFFF"
+        android:ems="20"
+        android:gravity="center"
+        android:hint="password"
+        android:inputType="textPassword" />
 
     <Button
-        android:id="@+id/button1"
-        android:layout_width="wrap_content"
-        android:layout_height="50dp"
-        android:layout_alignLeft="@+id/button2"
-        android:layout_below="@+id/textView3"
-        android:layout_marginTop="28dp"
-        android:background="@drawable/gioca" />
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/password_form"
+        android:layout_alignRight="@+id/password_form"
+        android:layout_below="@+id/password_form"
+        android:layout_marginBottom="15dp"
+        android:background="#007772"
+        android:text="Login" 
+        android:textColor="#FFFFFF"/>
 
     <Button
-        android:id="@+id/button2"
-        android:layout_width="wrap_content"
-        android:layout_height="70dp"
-        android:layout_below="@+id/button1"
-        android:layout_centerHorizontal="true"
-        android:background="@drawable/classifica" />
-
+        android:id="@+id/registra_button"
+        android:layout_width="match_parent"
+        android:layout_height="40dp"
+        android:layout_alignLeft="@+id/password_form"
+        android:layout_alignRight="@+id/login_button"
+        android:layout_below="@+id/login_button"
+        android:background="#037677"
+        android:text="Registrati" 
+        android:textColor="#FFFFFF"/>
+    
 </RelativeLayout>

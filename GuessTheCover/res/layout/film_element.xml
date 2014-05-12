@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="fill_parent"
+    android:layout_height="100dip"
+    android:padding="5dip" >
+
+    <ImageView
+        android:id="@+id/filmImage"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_alignParentLeft="true"
+        android:layout_centerVertical="true"
+        android:src="@drawable/blue" />
+
+    <TextView
+        android:id="@+id/filmPoint"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/filmImage"
+        android:layout_toRightOf="@+id/filmImage"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="20dp"
+        android:text="Punti"
+        android:textColor="#007772" />
+
+    <TextView
+        android:id="@+id/filmName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/filmImage"
+        android:layout_toRightOf="@+id/filmImage"
+        android:layout_marginLeft="20dp"
+        android:layout_marginBottom="10dp"
+        android:text="nome film"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:textColor="#007772" />
+
+</RelativeLayout>

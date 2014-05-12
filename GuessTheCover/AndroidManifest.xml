@@ -22,7 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    	<activity android:name="it.unisa.guessthecover.Login" >
+    	<activity android:name="it.unisa.guessthecover.Home" >
 		</activity>  
 		<activity android:name="it.unisa.guessthecover.Registra" >
 		</activity>  
