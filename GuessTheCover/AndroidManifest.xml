@@ -7,12 +7,21 @@
     <uses-sdk
         android:minSdkVersion="8"
         android:targetSdkVersion="19" />
-
+    <uses-permission android:name="android.permission.INTERNET"/>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <supports-screens 
+        android:xlargeScreens="true"
+        android:largeScreens="true"
+        android:normalScreens="true"
+        android:smallScreens="true"
+        android:anyDensity="false"/>
+    
     <application
         android:allowBackup="true"
-        android:icon="@drawable/ic_launcher"
+        android:icon="@drawable/mistermovie"
         android:label="@string/app_name"
-        android:theme="@style/AppTheme" >
+        android:theme="@style/AppTheme" 
+        android:largeHeap="true">
         <activity
             android:name="it.unisa.guessthecover.MainActivity"
             android:label="@string/app_name" >
@@ -22,12 +31,36 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-    	<activity android:name="it.unisa.guessthecover.Home" >
+    	<activity android:name="it.unisa.guessthecover.Home" 
+    	    		android:label="@string/app_name"
+   					android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
 		</activity>  
-		<activity android:name="it.unisa.guessthecover.Registra" >
+		<activity android:name="it.unisa.guessthecover.Registra" 
+		    android:label="@string/app_name"
+    		android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
 		</activity>  
-		<activity android:name="it.unisa.guessthecover.Gioco" >
+		<activity android:name="it.unisa.guessthecover.Gioco" 
+		    >
 		</activity> 
+		<activity android:name="it.unisa.guessthecover.FilmListActivity" 
+		    >
+		</activity>
+		<activity android:name="it.unisa.guessthecover.FilmActivity" 
+		    android:label="@string/app_name"
+    		android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+		</activity>
+		<activity android:name="it.unisa.guessthecover.LoginActivity" 
+		    android:label="@string/app_name"
+    		android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+		</activity>
+		<activity android:name="it.unisa.guessthecover.RegisterActivity" 
+		    android:label="@string/app_name"
+    		android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+		</activity>
+		<activity android:name="it.unisa.guessthecover.Classifica" 
+		    android:label="@string/app_name"
+    		android:theme="@android:style/Theme.NoTitleBar.Fullscreen">
+		</activity>
     </application>
 
 </manifest>

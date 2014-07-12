@@ -9,7 +9,7 @@ public class DatabaseHelperFilm extends SQLiteOpenHelper {
     private static final String DATABASE_NAME = "film_database";
     private static final int DATABASE_VERSION = 1;
     // Lo statement SQL di creazione del database
-    private static final String DATABASE_CREATE = "create table cover (_id INTEGER PRIMARY KEY, title TEXT, category TEXT, point NUMERIC, image NUMERIC, guess TEXT";
+    private static final String DATABASE_CREATE = "create table cover (_id INTEGER PRIMARY KEY, title TEXT, category TEXT, point NUMERIC, image NUMERIC, nameImage TEXT, guess TEXT)";
 
     // Costruttore
     public DatabaseHelperFilm(Context context) {

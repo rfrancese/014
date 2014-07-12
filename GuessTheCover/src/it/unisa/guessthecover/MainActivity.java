@@ -23,79 +23,46 @@ public class MainActivity extends ActionBarActivity {
 	
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);  
-	    Log.d("prova","sto per fare la roba sul bd");
+		/*
+		Log.d("main","sto per chiamare il login");
+		Intent intent;
+		intent = new Intent(MainActivity.this, LoginActivity.class);
+		startActivity(intent);
+		finish();
+		*/
+		
+		
+		Log.d("prova","sto per fare la roba sul bd");
 	    dbHelper = new DbAdapter(getApplicationContext());
 	    Log.d("prova","apro il bd");
 	    dbHelper.open();
 	    Log.d("prova","riempio il cursore");
         cursor = dbHelper.fetchAllContacts();
         
-        /*
-        Log.d("prova","provo a ftampare la roba nel cursore");
+        
+        Log.d("prova","provo a stampare la roba nel cursore");
         
         while ( cursor.moveToNext() ) {
-            String contactID = cursor.getString( cursor.getColumnIndex(DbAdapter.KEY_CONTACTID) );
-            Log.d("TAG", "contact id = " + contactID);
+            String contactID = cursor.getString( cursor.getColumnIndex(DbAdapter.KEY_ID) );
+            Log.d("TAG", "KEY_ID = " + contactID);
             String email = cursor.getString( cursor.getColumnIndex(DbAdapter.KEY_EMAIL) );
             Log.d("TAG", "email = " + email);
-            String nick = cursor.getString( cursor.getColumnIndex(DbAdapter.KEY_NICKNAME) );
+            String nick = cursor.getString( cursor.getColumnIndex(DbAdapter.KEY_NAME) );
             Log.d("TAG", "nickname = " + nick);
-        } */
+        } 
+		
         Log.d("if", "sto per entrare nell if");
-        if(cursor.moveToNext()==false){
+        
+        if(cursor.moveToFirst()==false){
         	Log.d("if", "condizione vera");
         	cursor.close();
             dbHelper.close();
         	
-        	//super.onCreate(savedInstanceState);
-    		setContentView(R.layout.activity_login);
-    		
-    		if (savedInstanceState == null) {
-				getSupportFragmentManager().beginTransaction()
-				.add(R.id.container, new PlaceholderFragment()).commit();
-			}
-			
-			Button login=(Button)findViewById(R.id.login_button);
-			login.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					
-					//leggo dal form
-					final EditText edit_email = (EditText)findViewById(R.id.email_form);
-		            final EditText edit_password = (EditText)findViewById(R.id.password_form);
-					//leggo dal bd
-		            
-		            //Log.d("prova if","sto per fare la roba sul bd");
-		    	    dbHelper = new DbAdapter(getApplicationContext());
-		    	    //Log.d("prova","apro il bd");
-		    	    dbHelper.open();
-		    	    //Log.d("prova","riempio il cursore");
-		            cursor = dbHelper.fetchAllContacts();
-		            
-		            cursor.moveToFirst();
-			        //confronto i dati del form con quelli del bd locale... dovremmo confrontarli con quelli del bd online 
-		            if(edit_email.getText().equals(cursor.getString( cursor.getColumnIndex(DbAdapter.KEY_EMAIL))) && edit_password.getText().equals(cursor.getColumnIndex(DbAdapter.KEY_PASSWORD))){		            				
-		            	cursor.close();
-		            	Intent intent;
-		            	intent = new Intent(MainActivity.this, Home.class);
-		            	startActivity(intent);
-		            }
-		            else{
-		            	//stampare messaggio email o password errate
-		            	Log.d("login","email o password non corrispondono");
-		            }
-				}
-			});
-			
-			Button registra=(Button)findViewById(R.id.registra_button);
-			registra.setOnClickListener(new View.OnClickListener() {
-				@Override
-				public void onClick(View v) {
-					Intent intent;
-					intent = new Intent(MainActivity.this, Registra.class);
-					startActivity(intent);
-				}
-			});
+            Log.d("main","sto per chiamare il login");
+    		Intent intent;
+    		intent = new Intent(MainActivity.this, LoginActivity.class);
+    		startActivity(intent);
+    		finish();
         }
         
         else{
@@ -106,6 +73,7 @@ public class MainActivity extends ActionBarActivity {
         	Intent intent;
 			intent = new Intent(MainActivity.this, Home.class);
 			startActivity(intent);
+			finish();
         }
         
         //il bd va chiuso dopo il cursore
@@ -114,11 +82,12 @@ public class MainActivity extends ActionBarActivity {
         Log.d("prova","chiudo il db");
         dbHelper.close();
         */
+		/*
         Log.d("prova","andata");
         
         //startManagingCursor(cursor);
 	    //controllo se dati utente per login sono già presenti nel database 
-		
+		*/
 			
 			
 	} 
@@ -159,7 +128,6 @@ public class MainActivity extends ActionBarActivity {
 			View rootView = inflater.inflate(R.layout.fragment_main, container,
 					false);
 			return rootView;
-			
 		}
 	}
 

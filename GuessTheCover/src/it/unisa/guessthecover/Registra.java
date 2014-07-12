@@ -3,7 +3,6 @@ package it.unisa.guessthecover;
 import database.DbAdapter;
 import android.app.Activity;
 import android.content.Intent;
-import android.database.Cursor;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -41,7 +40,8 @@ public class Registra extends Activity {
 		            Log.d("registra","dbHelper.open();");
 		            dbHelper.open();
 		            Log.d("registra","dbHelper.createContact(edit_email.getText().toString(), edit_nickname.getText().toString(), edit_password.getText().toString(), point);");
-		            dbHelper.createContact(edit_email.getText().toString(), edit_nickname.getText().toString(), edit_password.getText().toString(), point);
+		            //dbHelper.createContact(edit_email.getText().toString(), edit_nickname.getText().toString(), edit_password.getText().toString(), point);
+		            dbHelper.createContact(edit_email.getText().toString(), edit_nickname.getText().toString(), point);
 		            Log.d("registra","dbHelper.close();");
 		            dbHelper.close();
 		            
