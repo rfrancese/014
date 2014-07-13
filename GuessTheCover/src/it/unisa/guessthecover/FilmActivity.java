@@ -25,6 +25,7 @@ private String help = "";
 private int np;
 private int multiplier;
 private int numhelp=0;
+private boolean aiutato = true;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -61,7 +62,8 @@ private int numhelp=0;
 		        	updateUser(film.getPoint()*multiplier);
 		        	updateFilm();
 		        	creaToast("Point +"+(film.getPoint()*multiplier));
-		        	multiplier++;
+		        	if(aiutato=true)multiplier++;
+		        	else multiplier=1;
 		        	/*
 		        	try {
 						Thread.sleep(5000);
@@ -79,6 +81,7 @@ private int numhelp=0;
 		        	//messaggio di avviso 
 		        	creaToast("Hai Sbagliato");
 		        	multiplier=1;
+		        	aiutato=false;
 		        }
 		        
 			}
@@ -103,6 +106,8 @@ private int numhelp=0;
 					if(numhelp==1)p=-10;
 					else p=-35;
 					
+					aiutato = false;
+					
 					Log.d("AIUTO","punti persi="+p);
 					updateUser(p);
 					np=np+p;
@@ -123,6 +128,7 @@ private int numhelp=0;
 				EditText titolo=(EditText)findViewById(R.id.title);
 				titolo.setText(film.getTitle());
 				int p=-100;
+				aiutato = false;
 				updateUser(p);
 				creaToast("point "+ p);
 			}

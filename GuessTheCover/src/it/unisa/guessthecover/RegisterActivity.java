@@ -138,25 +138,25 @@ public class RegisterActivity extends Activity {
             	String email = inputEmail.getText().toString();
             	
             	if (password.equals(conf_password)) {
-            	if((!name.equals(null)) && (!email.equals(null)) && (password.equals(null)) ) {
-            		///
-            		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
-            		boolean connessioneDisponibile=false;
-            		if(cm!=null && cm.getActiveNetworkInfo()!=null){
-            			//controllo disponibilità di rete
-            			connessioneDisponibile= cm.getActiveNetworkInfo().isConnectedOrConnecting();
-            	    	}    		 
-            	    if(connessioneDisponibile){
-            	    	//carichiamo la pagina web
-            	    	new doRegister().execute();
+            		if((!name.equals(null)) && (!email.equals(null)) && (!password.equals(null)) ) {
+            			///
+            			ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+            			boolean connessioneDisponibile=false;
+            			if(cm!=null && cm.getActiveNetworkInfo()!=null){
+            				//controllo disponibilità di rete
+            				connessioneDisponibile= cm.getActiveNetworkInfo().isConnectedOrConnecting();
+            	    		}    		 
+            	    	if(connessioneDisponibile){
+            	    		//carichiamo la pagina web
+            	    		new doRegister().execute();
             	    	
-            	    }
-            	    else{
-            	    	registerErrorMsg.setText("connesione non disponibile");
-            	    }
-            	}
-            	else{
-            		registerErrorMsg.setText("informazioni mancanti");
+            	    	}
+            	    	else{
+            	    		registerErrorMsg.setText("connesione non disponibile");
+            	    	}
+            		}
+            		else{
+            			registerErrorMsg.setText("informazioni mancanti");
             		}
             	}
             	else{

@@ -1,5 +1,9 @@
 package it.unisa.guessthecover;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import database.DbAdapter;
 import database.UserFunctions;
 import android.app.Activity;
@@ -7,12 +11,12 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.net.ConnectivityManager;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -22,9 +26,68 @@ public class Home extends Activity {
 	private Cursor cursor;
 	private int multiplier=1;
 	
+	private JSONObject json;
+	private JSONArray jsonTop;
+	private UserFunctions userFunction;
+	private String email;
+	private int point;
+	private static String KEY_SUCCESS = "success";
+	private static String KEY_NAME = "name";
+	private static String KEY_POINT = "point";
 	
 	@Override
     protected void onCreate(Bundle savedInstanceState) {
+		
+		////
+		class doRegister extends AsyncTask<String, String, String>{
+			
+			@Override
+			protected void onPreExecute() {
+				// TODO Auto-generated method stub
+				super.onPreExecute();
+			}
+			
+			@Override
+			protected String doInBackground(String... params) {
+				Log.d("classifica", "doInBackground");
+				dbHelper = new DbAdapter(getApplicationContext());
+				dbHelper.open();
+				cursor = dbHelper.fetchAllContacts();
+				cursor.moveToFirst();
+				email = cursor.getString( cursor.getColumnIndex(DbAdapter.KEY_EMAIL) );
+				point = cursor.getInt( cursor.getColumnIndex(DbAdapter.KEY_POINT) );
+				//Log.d("classifica","email: "+email+" point: "+point);   
+		        userFunction = new UserFunctions();
+		        json = userFunction.updateUser(email, point);
+		        //Log.d("classifica",""+json);
+		        //new top100().execute();
+				return null;
+			}
+
+			@Override
+			protected void onPostExecute(String result) {
+				Log.d("classifica", "onPostExecute");
+				try { 
+	                if (!(json.getString(KEY_SUCCESS).equals(null))) {
+	                	
+	                	//registerErrorMsg.setText("");
+	             
+	                	String res = json.getString(KEY_SUCCESS); 
+	                    if(Integer.parseInt(res) == 1){
+	                    	//WebView myWebView = (WebView) findViewById(R.id.webview);
+	            	    	//myWebView.loadUrl("http://guessthecover.altervista.org/db/classifica.php");
+	                        
+	                    }else{
+	                        // Error in update
+	                        //registerErrorMsg.setText("Error occured in registration");
+	                    }
+	                }
+	            } catch (JSONException e) {e.printStackTrace();}
+				//super.onPostExecute(result);
+			}
+		}
+		////
+		
 		Log.d("home", "sono appena entrato nella home");  
 		 
 		super.onCreate(savedInstanceState);
@@ -61,6 +124,25 @@ public class Home extends Activity {
         txt = (TextView)findViewById(R.id.punteggio);
         txt.setText(point + " punti");
         
+        //
+        //setContentView(R.layout.activity_web);
+		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+		boolean connessioneDisponibile=false;
+		if(cm!=null && cm.getActiveNetworkInfo()!=null){
+			//controllo disponibilità di rete
+			connessioneDisponibile= cm.getActiveNetworkInfo().isConnectedOrConnecting();
+	    	}    		 
+	    if(connessioneDisponibile){
+	    	//
+	    	new doRegister().execute(); 
+           
+	    }
+	    else{
+	    	//creaToast("Connessione non disponibile");
+	    }
+        
+        //
+        
         Button button1=(Button)findViewById(R.id.gioca);
         button1.setOnClickListener(new View.OnClickListener() {
         	@Override
@@ -79,7 +161,7 @@ public class Home extends Activity {
         button2.setOnClickListener(new View.OnClickListener() {
         	@Override
         	public void onClick(View v) {
-        		setContentView(R.layout.activity_web);
+        		
         		ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
         		boolean connessioneDisponibile=false;
         		if(cm!=null && cm.getActiveNetworkInfo()!=null){

@@ -1194,7 +1194,7 @@ containing a value of this type.
         public static final int categoryImage=0x7f050051;
         public static final int categoryListView=0x7f05003c;
         public static final int checkbox=0x7f05002d;
-        public static final int classifica=0x7f050046;
+        public static final int classifica=0x7f050044;
         public static final int collapseActionView=0x7f05000d;
         public static final int conferma=0x7f050040;
         public static final int confpass_form=0x7f05004e;
@@ -1212,7 +1212,7 @@ containing a value of this type.
         public static final int filmImage=0x7f050052;
         public static final int filmName=0x7f050054;
         public static final int filmPoint=0x7f050053;
-        public static final int gioca=0x7f050045;
+        public static final int gioca=0x7f050043;
         public static final int help=0x7f050041;
         public static final int home=0x7f050014;
         public static final int homeAsUp=0x7f050005;
@@ -1233,7 +1233,7 @@ containing a value of this type.
         public static final int point=0x7f05003e;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
-        public static final int punteggio=0x7f050043;
+        public static final int punteggio=0x7f050045;
         public static final int radio=0x7f05002f;
         public static final int register_error=0x7f05004f;
         public static final int registra_button=0x7f05004b;
@@ -1259,7 +1259,7 @@ containing a value of this type.
         public static final int top_action_bar=0x7f050020;
         public static final int up=0x7f050021;
         public static final int useLogo=0x7f050003;
-        public static final int user=0x7f050044;
+        public static final int user=0x7f050046;
         public static final int webview=0x7f050050;
         public static final int withText=0x7f05000c;
     }
